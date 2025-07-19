@@ -1,0 +1,276 @@
+*<li></li>DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-CODE-TEK | Digital Skills & Services</title>
+  <link rel="icon" href="E-CODE-TEK/favicon.jpg" type="image/jpeg">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    nav h1 {
+      color: #007bff;
+      font-size: 1.6em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)),
+ url('https://via.placeholder.com/1400x500') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero h2 { font-size: 2.5em; margin-bottom: 10px; }
+    .hero p { font-size: 1.2em; margin-bottom: 20px; }
+    .hero a.btn {
+      background: #007bff; color: white; padding: 12px 30px;
+      text-decoration: none; font-weight: bold; border-radius: 6px;
+    }
+
+    #services, #why, #pricing, #testimonials, #contact {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .services-grid, .why-list, .testimonial-grid, .pricing-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+    }
+    .service-card, .pricing-card, .testimonial-card, .why-item {
+      background: white; padding: 25px; border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08); max-width: 300px;
+    }
+    .service-card h3, .pricing-card h3 { color: #007bff; margin-bottom: 15px; }
+    .testimonial-card { font-style: italic; }
+    .testimonial-card .name { margin-top: 10px; font-weight: bold; color: #007bff; }
+    .pricing-card { background: lightgrey; color: black; }
+    .pricing-card a.btn {
+      display: inline-block; margin-top: 15px;
+ background: white; color: #007bff; padding: 10px 20px; border-radius: 6px;
+      text-decoration: none; font-weight: bold;
+    }
+    .why-item::before {
+      content: "✔️"; margin-right: 10px; color: #007bff;
+    }
+
+    form input, form textarea {
+      width: 100%; padding: 12px;
+      border: 1px solid #ccc; border-radius: 6px;
+    }
+    form button {
+      margin-top: 10px;
+      background: #007bff; color: white; border: none;
+      padding: 12px 20px; font-weight: bold; border-radius: 6px;
+    }
+
+. Whatsapp-float {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #25d366;color:white; width: 60px; height: 60px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2); z-index: 10000;
+    }
+    . Whatsapp-float img { width: 90px; }
+
+    footer {
+      background:#007bff; color:white; padding:40px 20px; text-align:center;
+    }
+    footer a { color: #fff; text-decoration: none; }
+    footer form { margin-top: 20px; }
+    footer input {
+      padding:10px; border:none; border-radius:5px;
+      max-width:250px; width: 60%;
+    }
+    footer button {
+      padding:10px 15px; border:none;
+      background:#fff; color:#007bff;
+      font-weight:bold; border-radius:5px;
+      margin-left:10px;
+    }
+ @media(max-width: 768px) {
+      .services-grid, .why-list, .testimonial-grid, .pricing-grid {
+        flex-direction: column; align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+<nav>
+  <h1>E-CODE-TEK </h1>
+  </nav>
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us?</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>Your Trusted Identity and Digital Support Hub</h2>
+    <p>(Your Digital Store)</p>
+    <a href="#contact" class="btn">Get Started</a>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>NIN Services</h3>
+        <ul>
+          <li>New Enrolment (Adults & Children)</li>
+          <li>Verification & Validation</li>
+          <li>DOB, Name, Phone, Address Corrections</li>
+          <li>IPE Verification</li>
+          <li>Slip Printing (Black & Colour)</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>WAEC & CAC Registration Services</h3>
+        <ul>
+          <li>WAEC Certificate Retrieval & CAC Registration</li>
+          <li>Fast, Secure Processing</li>
+ <li>Document Guidance</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Digital Skill courses & Services</h3>
+        <ul>
+          <li>Online professional digital video skill courses, Verifications & Registrations</li>
+          <li>Email Setup & Uploads</li>
+          <li>Digital Training</li>
+          <li>Scanning & Editing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2>Why Choose Us?</h2>
+    <div class="why-list">
+      <div class="why-item">Fast Turnaround</div>
+      <div class="why-item">Affordable Pricing</div>
+      <div class="why-item">Secure & Confidential</div>
+      <div class="why-item">Friendly Support</div>
+      <div class="why-item">Experienced Team</div>
+      <div class="why-item">Trusted by Clients</div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        “Quick and professional service. My WAEC retrieval was done faster than expected.”
+        <div class="name">— A. Ibrahim</div>
+      </div>
+      <div class="testimonial-card">
+        “I was able to register my daughter’s NIN easily. The team was friendly and efficient.”
+        <div class="name">— M. Okafor</div>
+      </div>
+      <div class="testimonial-card">
+ “Affordable and reliable. I highly recommend E-Code-Tek for digital services.”
+        <div class="name">— F. Samuel</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>New NIN Enrolment</h3>
+        <p>₦8,500</p>
+        <a href="#contact" class="btn">Order Now...</a>
+      </div>
+      <div class="pricing-card">
+        <h3>WAEC Certificate Retrieval & CAC Registration</h3>
+        <p>₦10,500 & ₦20,000</p>
+        <a href="#contact" class="btn">Order Now...</a>
+      </div>
+      <div class="pricing-card">
+        <h3>NIN MOD.</h3>
+        <p>₦10,500</p>
+        <a href="#contact" class="btn">Order Now...</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <textarea rows="4" placeholder="Your Message or Service Request" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  
+
+  <!-- Footer Section with Icons -->
+  <footer>
+    <p style="font-size:1.2em; font-weight:bold;">E-CODE-TEK</p>
+    <p>Your Trusted Identity and Digital Support Hub</p>
+
+    <p>
+      <i class="fas fa-phone"></i>
+ <a href="tel:+2347018836989">07018836989</a> |
+      <i class="fas fa-envelope"></i> 
+      <a href="mailto:eazyconnect34@gmail.com">eazyconnect34@gmail.com</a>
+    </p>
+
+    <!-- Social Icons -->
+    <div style="margin:15px 0; font-size:1.2em;">
+      <a href="https://wa.me/2347018836989" target="_blank" style="margin:0 10px; color:white;">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="#" style="margin:0 10px; color:white;">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" style="margin:0 10px; color:white;">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+    <!-- Newsletter -->
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <p style="margin-top:20px;">&copy; 2025 E-CODE-TEK. All rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
