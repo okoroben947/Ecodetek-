@@ -1,302 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>E-CODE-TEK | Digital Skills & Services</title>
-  
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="E-CODE-TEK: Digital skills training and essential services" />
+<title>E-CODE-TEK | Digital Skills & Services</title>
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: #ffffff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f9faff;
+    color: #222;
+    scroll-behavior: smooth;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: #004aad;
+    padding: 10px 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+  header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  header .logo img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+  }
+header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  header nav a:hover {
+    color: #ffd700;
+  }
+  .dark-mode-toggle {
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-left: 15px;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004aad;
+    font-weight: 700;
+  }
+
+  /* Dropdown style for products & services */
+  .dropdown-container {
+    max-width: 400px;
+    margin: 0 auto 40px;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+  }
+  select:hover, select:focus {
+    border-color: #004aad;
+    outline: none;
+  }
+
+  /* Testimonials slider */
+  .testimonials {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    padding: 20px;
+  }
+  .testimonial-slide {
+    display: none;
+    text-align: center;
+padding: 20px 10px;
+  }
+  .testimonial-slide.active {
+    display: block;
+  }
+  .testimonial-slide p {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  .testimonial-slide .name {
+    font-weight: 700;
+    color: #004aad;
+  }
+  .testimonial-controls {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .testimonial-controls button {
+    background: #004aad;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  .testimonial-controls button:hover {
+    background: #ffd700;
+    color: #004aad;
+  }
+
+  /* Pricing cards */
+  .pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+    padding: 25px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.2);
+  }
+  .card h3 {
+    margin-bottom: 15px;
+    color: #004aad;
+  }
+  .card p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  .card button {
+    padding: 10px 15px;
+background: #004aad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .card button:hover {
+    background: #ffd700;
+    color: #004aad;
+  }
+
+  /* FAQ */
+  .faq-item {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+    overflow: hidden;
+  }
+  .faq-question {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #004aad;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    background: #e9efff;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer p {
+    padding: 15px 0;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 200px; /* enough to show content */
+  }
+  .faq-item.active .faq-question i {
+    transform: rotate(45deg);
+  }
+
+  /* Contact form */
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+  }
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  form input, form textarea, form select {
+width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border-color: #004aad;
+  }
+  form button {
+    background: #004aad;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  form button:hover {
+    background: #ffd700;
+    color: #004aad;
+  }
+
+  /* Footer */
+  footer {
+    background: #004aad;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+  }
+  footer .social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  footer .social-icons a:hover {
+    color: #ffd700;
+  }
+  footer p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+
+  /* Animations */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pricing {
+      flex-direction: column;
       align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
     }
-    nav h1 {
-      color: #007bff;
-      font-size: 1.6em;
+header {
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    nav ul li a:hover {
-      color: #007bff;
-    }
-
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)),
- url('https://via.placeholder.com/1400x500') center/cover no-repeat;
-      color: white;
-      padding: 100px 20px;
-      text-align: center;
-    }
-    .hero h2 { font-size: 2.5em; margin-bottom: 10px; }
-    .hero p { font-size: 1.2em; margin-bottom: 20px; }
-    .hero a.btn {
-      background: #007bff; color: white; padding: 12px 30px;
-      text-decoration: none; font-weight: bold; border-radius: 6px;
-    }
-
-    #services, #why, #pricing, #testimonials, #contact {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .services-grid, .why-list, .testimonial-grid, .pricing-grid {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
-    }
-    .service-card, .pricing-card, .testimonial-card, .why-item {
-      background: white; padding: 25px; border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08); max-width: 300px;
-    }
-    .service-card h3, .pricing-card h3 { color: #007bff; margin-bottom: 15px; }
-    .testimonial-card { font-style: italic; }
-    .testimonial-card .name { margin-top: 10px; font-weight: bold; color: #007bff; }
-    .pricing-card { background: lightgrey; color: black; }
-    .pricing-card a.btn {
-      display: inline-block; margin-top: 15px;
- background: light-gray; color: #007bff; padding: 10px 20px; border-radius: 6px;
-      text-decoration: none; font-weight: bold;
-    }
-    .why-item::before {
-      content: "✔️"; margin-right: 10px; color: #007bff;
-    }
-
-    form input, form textarea {
-      width: 100%; padding: 12px;
-      border: 1px solid #ccc; border-radius: 6px;
-    }
-    form button {
+    header nav {
       margin-top: 10px;
-      background: #007bff; color: white; border: none;
-      padding: 12px 20px; font-weight: bold; border-radius: 6px;
     }
-
-. Whatsapp-float {
-      position: fixed; bottom: 20px; right: 20px;
-      background: #25d366;color:white; width: 60px; height: 60px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2); z-index: 10000;
-    }
-    . Whatsapp-float img { width: 90px; }
-
-    footer {
-      background:#007bff; color:white; padding:20px 20px; text-align:center;
-    }
-    footer a { color: #fff; text-decoration: none; }
-    footer form { margin-top: 20px; }
-    footer input {
-      padding:10px; border:none; border-radius:5px;
-      max-width:250px; width: 60%;
-    }
-    footer button {
-      padding:10px 10px; border:none;
-      background:#fff; color:#007bff;
-      font-weight:bold; border-radius:5px;
-      margin-left:10px;
-    }
- @media(max-width: 900px) {
-      .services-grid, .why-list, .testimonial-grid, .pricing-grid {
-        flex-direction: column; align-items: center;
-      
-    }
-  </style>
+  }
+</style>
 </head>
-
 <body>
-  
-<nav>
-  <h1>E-CODE-TEK </h1>
+<header>
+    <h1>E-CODE-TEK</h1>
+  </div>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
   </nav>
-  <nav style="position: sticky; top: 0; z-index: 1000; background-color: #f0f0f0; padding: 10px;">
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">Why Us?</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <a href="tel:+2347018836989" title="Call Us" style="color:white; font-size:1.5rem;">
+    <i class="fas fa-phone"></i>
+  </a>
+</header>
 
-  <section class="hero">
-    <h2>Your Trusted Identity and Digital Support Hub</h2>
-    <p>(Your Digital Store)</p>
-    <a href="#contact" class="btn">Get Started</a>
+<main>
+
+  <!-- Mission & Vision -->
+  <section id="mission-vision" data-animate>
+    <h1 style="text-decoration: underline double;" align="center">Welcome <br>To <br>E-CODE-TEK</h1>
+    <br>
+    <h3 align="center">Your number one Digital Store. We believe in impacting lives positively and we are committed to providing quality services </h3>
+    <br>
+    <h2 style="text-decoration: underline;">Our Mission</h2>
+    <p align="center">
+      At <strong>E-CODE-TEK</strong>, our mission is to empower individuals and businesses through digital transformation.
+      We provide expert-led training in high-demand tech skills and deliver essential digital identity and support services
+      that simplify life and unlock opportunities.
+    </p>
+    <h2 style="text-decoration: underline;">Our Vision</h2>
+    <p align="center">
+      Our vision is to become Africa’s leading hub for digital skills acquisition and smart service delivery —
+      equipping a generation to lead, innovate, and thrive in the global digital economy.
+    </p>
   </section>
 
-  <section id="services">
+  <!-- Products Dropdown -->
+  <section id="products" data-animate>
+    <h2>Our Digital Courses</h2>
+    <div class="dropdown-container">
+      <label for="product-select">Choose a course:</label>
+<select id="product-select" aria-label="Select a digital course">
+        <option value="" disabled selected>Select a Course</option>
+        <option>Full Stack Web Development</option>
+        <option>Data Analysis</option>
+        <option>Graphics Design</option>
+        <option>Video Editing</option>
+        <option>E-commerce Design</option>
+        <option>Landing Page Development</option>
+        <option>Ethical Hacking</option>
+        <option>SEO</option>
+        <option>Product Management</option>
+        <option>UI/UX Design</option>
+        <option>Data Analysis Course</option>
+        <option>Expert Digital Marketing Course</option>
+        <option>Visual Assistant Course</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Services Dropdown -->
+  <section id="services" data-animate>
     <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>NIN Services</h3>
-        <hr>
-        <ul>
-          <li>New Enrolment (Adults & Children)</li>
-          <hr>
-          <li>Verification & Validation</li>
-          <hr>
-          <li>DOB, Name, Phone, Address Corrections</li>
-          <hr>
-          <li>IPE Verification</li>
-          <hr>
-          <li>Slip Printing (Black & Colour)</li>
-          <hr>
-        </ul>
-      </div>
-      <div class="service-card">
-        <h3>WAEC & CAC Services</h3>
-        <hr>
-        <ul>
-          <li>WAEC Certificate Retrieval</li>
-          <hr>
-            <li>CAC Registration</li>
-          <hr>
-          <li>Fast, Secure Processing</li>
-          <hr>
- <li>Document Guidance</li>
-        </ul>
-      </div>
-      <br>
-      <div class="service-card">
-        <h3>Digital Skill courses & Services</h3>
-        <hr>
-        <ul>
-          <li>Online professional digital video skill courses</li>
-          <hr>
-            <li>Verifications & Registrations</li>
-          <hr>
-          <li>Full Stack Web Design Course</li>
-          <hr>
-          <li>Digital Training</li>
-          <hr>
-          <li>Ethical Hacking Course</li>
-          <hr>
-          <li>Data Analysis Course</li>
-          <hr>
-          <li>WordPress Course</li>
-          <hr>
-          <li>E-commerce Store Course(No coding)</li>
-          <hr>
-          <li>...All Kinds of Digital Skill Courses</li>
-          <hr>
-        </ul>
-      </div>
-      <br>
+    <div class="dropdown-container">
+      <label for="service-select">Choose a service:</label>
+      <select id="service-select" aria-label="Select a service">
+        <option value="" disabled selected>Select a Service</option>
+        <option>NIN Verification</option>
+        <option>D.O.B. Modification</option>
+        <option>Phone Number Modification</option>
+        <option>Address Modification</option>
+        <option>NIN Validation</option>
+        <option>Adult Enrollment</option>
+        <option>Children Enrollment</option>
+        <option>Name Rearrangement</option>
+        <option>IPE Validation and others</option>
+        <option>CAC Registration</option>
+        <option>Business Name Registration</option>
+        <option>Company Registration</option>
+        <option>NGO Registration </option>
+        <option>SCUML Registration</option>
+        <option>JTB TIN Fast-track</option>
+        <option>FIRS TIN</option>
+        <option>WAEC Certificate Retrieval</option>
+        <option>VTU Website Setup</option>
+        <option>Consultation</option>
+      </select>
     </div>
   </section>
 
-  <section id="why">
-    <h2>Why Choose Us?</h2>
-    <div class="why-list">
-      <div class="why-item">Fast Turnaround</div>
-      <div class="why-item">Affordable Pricing</div>
-      <div class="why-item">Secure & Confidential</div>
-      <div class="why-item">Friendly Support</div>
-      <div class="why-item">Experienced Team</div>
-      <div class="why-item">Trusted by Clients</div>
+  <!-- Pricing -->
+  <section id="pricing" data-animate>
+    <h2>Pricing</h2>
+    <div class="pricing">
+<div class="card">
+        <h3>Basic Course Package</h3>
+        <p>Access to 3 beginner courses.</p>
+        <button>Enroll Now</button>
+      </div>
+      <div class="card">
+        <h3>Pro Course Package</h3>
+        <p>Access to all digital skill courses.</p>
+        <button>Enroll Now</button>
+      </div>
+      <div class="card">
+        <h3>Service Bundle</h3>
+        <p>Includes NIN services and consultations.</p>
+        <button>Get Started</button>
+      </div>
     </div>
   </section>
 
-  <section id="testimonials">
+  <!-- Testimonials -->
+  <section id="testimonials" data-animate>
     <h2>What Our Clients Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        “Quick and professional service. My WAEC retrieval was done faster than expected.”
-        <div class="name">— A. Ibrahim</div>
+    <div class="testimonials">
+      <div class="testimonial-slide active">
+        <p>"E-CODE-TEK transformed my career with their Full Stack course!"</p>
+        <div class="name">- Adeola A.</div>
       </div>
-      <div class="testimonial-card">
-        “I was able to register my daughter’s NIN easily. The team was friendly and efficient.”
-        <div class="name">— M. Okafor</div>
+      <div class="testimonial-slide">
+        <p>"Their services helped me get my WAEC certificate effortlessly."</p>
+        <div class="name">- Chinedu O.</div>
       </div>
-      <div class="testimonial-card">
- “Affordable and reliable. I highly recommend E-Code-Tek for digital services.”
-        <div class="name">— F. Samuel</div>
+      <div class="testimonial-slide">
+        <p>"Excellent UI/UX design course with hands-on projects."</p>
+        <div class="name">- Fatima K.</div>
       </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <h2>Pricing Plans</h2>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>New NIN Enrolment</h3>
-        <p>₦8,500</p>
-        <a href="#contact" class="btn">Order Now...</a>
-      </div>
-      <div class="pricing-card">
-        <h3>WAEC Certificate Retrieval & CAC Registration</h3>
-        <p>₦10,500 & ₦20,000</p>
-        <a href="#contact" class="btn">Order Now...</a>
-      </div>
-      <div class="pricing-card">
-        <h3>NIN MOD.</h3>
-        <p>₦10,500</p>
-        <a href="#contact" class="btn">Order Now...</a>
+      <div class="testimonial-controls">
+        <button id="prev-testimonial">&#10094; Prev</button>
+<button id="next-testimonial">Next &#10095;</button>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <!-- Why Choose Us -->
+  <section id="why-choose-us" data-animate>
+    <h2>Why Choose Us?</h2>
+    <ul align="center">
+      <li>Expert-led, practical training courses</li>
+      <li>Wide range of essential digital services</li>
+      <li>24/7 support and working hours</li>
+      <li>Trusted by hundreds of satisfied clients</li>
+      <li>Affordable pricing with flexible packages</li>
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" data-animate>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-question">How do I enroll in a course? <i class="fas fa-plus"></i></div>
+      <div class="faq-answer"><p>You can enroll via the pricing section or contact us directly through the contact form.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do you provide certificates? <i class="fas fa-plus"></i></div>
+      <div class="faq-answer"><p>Yes, we provide recognized certificates upon course completion.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Are your services available nationwide? <i class="fas fa-plus"></i></div>
+<div class="faq-answer"><p>Yes, our digital services and courses are accessible across Nigeria and Africa.</p></div>
+    </div>
+  </section>
+
+  <!-- Subscription -->
+  <section id="subscription" data-animate>
+    <h2>Subscribe to Our Newsletter</h2>
+    <form id="subscription-form">
+      <label for="subscriber-email">Email Address</label>
+      <input type="email" id="subscriber-email" name="subscriber_email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" data-animate>
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <textarea rows="4" placeholder="Your Message or Service Request" required></textarea>
+    <form id="contact-form">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="user_name" required />
+      
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="user_email" required />
+      
+      <label for="subject">Subject</label>
+      <select id="subject" name="subject" required>
+        <option value="" disabled selected>Select a subject</option>
+        <option value="Course Inquiry">Course Inquiry</option>
+        <option value="Service Request">Service Request</option>
+        <option value="General Question">General Question</option>
+      </select>
+      
+      <label for="message">Message</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+      
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <hr>
+</main>
 
-  <!-- Footer Section with Icons -->
-  <footer>
-    <p style="font-size:1.0em; font-weight:bold;">E-CODE-TEK</p>
-    <p>Your Trusted Identity and Digital Support Hub</p>
-<hr>
-    <p style="font-size:0.95em;">
-      <i class="fas fa-phone"></i>
- <a href="tel:+2347018836989"> 07018836989</a> |
-      <i class="fas fa-envelope"></i> 
-      <a href="mailto:eazyconnect34@gmail.com">eazyconnect34@gmail.com</a>
-    </p>
-<hr>
-    <!-- Social Icons -->
-    <div style="margin:15px 0; font-size:1.2em;">
-      <a href="https://wa.me/2347042131467" target="_blank" style="margin:0 10px; color:white;">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61576917940855" style="margin:0 10px; color:white;">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#" style="margin:0 0px; color:white;">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-<hr>
-    <!-- Newsletter -->
-    <form>
-      <input type="email" placeholder="Enter your email" required />
-      <button type="submit">Subscribe</button>
-    </form>
+<footer>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61576917940855" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://wa.me/2347042131467" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 E-CODE-TEK. All Rights Reserved.</p>
+</footer>
 
-    <p style="margin-top:20px;">&copy; 2025 E-CODE-TEK. All rights Reserved.</p>
-  </footer>
+<script>
+  // Animate sections on scroll
+  function reveal() {
+    const sections = document.querySelectorAll('[data-animate]');
+    const windowHeight = window.innerHeight;
+    sections.forEach(section => {
+      const elementTop = section.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 100) {
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+
+  // Testimonials slider logic
+  const slides = document.querySelectorAll('.testimonial-slide');
+  let currentSlide = 0;
+  const nextBtn = document.getElementById('next-testimonial');
+  const prevBtn = document.getElementById('prev-testimonial');
+
+  function showSlide(index) {
+slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide -1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  // FAQ toggle
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+
+  // Subscription form submit handler (example: just alert)
+  document.getElementById('subscription-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const email = e.target.subscriber_email.value.trim();
+    if (email) {
+      alert(`Thank you for subscribing with ${email}!`);
+      e.target.reset();
+    }
+  });
+
+  // Contact form submit handler (simulate or integrate with EmailJS)
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you for contacting us! We will get back to you soon.');
+    e.target.reset();
+  });
+</script>
 
 </body>
 </html>
